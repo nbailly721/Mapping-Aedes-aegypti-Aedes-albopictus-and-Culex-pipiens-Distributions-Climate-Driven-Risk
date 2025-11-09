@@ -83,7 +83,7 @@
 
 -Integrates BOLD species occurrence data with WorldClim climate data for global risk modeling.
 
--All the graphs showing future projections only represent the hotspots for **January**. The same code structure can be used to produce visualizations for the rest of months.
+-All the graphs showing future projections only represent the hotspots for **January**. The same code structure can be used to produce visualizations for the other months.
 
 📌 Policy-Based Relevance
 
