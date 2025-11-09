@@ -53,17 +53,23 @@
 
 📊 Key Results - Figures
 
--Global distribution maps for each species (Culex pipiens, Aedes albopictus, Aedes aegypti)
+-Global Distribution of Culex pipiens.png – Global presence of Culex pipiens based on the BOLD dataset.
 
--Combined species richness map
+-Global Distribution of Aedes albopictus.png – Global presence of Aedes albopictus based on the BOLD dataset.
 
--Climate-integrated hotspot map (current conditions)
+-Global Distribution of Aedes aegypti.png – Global presence of Aedes aegypti based on the BOLD dataset.
 
--Regression analysis of climate effects on hotspots
+-Global Overlap of Disease-vector Mosquitoes.png – Species richness: overlap of the three mosquito species.
 
--Projected hotspots under +2°C and +3°C warming
+-Global Mosquito Hotspots (Current Climate).png – Hotspot scores combining species richness and current climate suitability.
 
--Change in hotspot suitability maps (Δ hotspot scores)
+-Projected Mosquito Hotspots (+2°C).png – Predicted hotspots under a +2°C warming scenario.
+
+-Projected Mosquito Hotspots (+3°C).png – Predicted hotspots under a +3°C warming scenario.
+
+-Change in Mosquito Hotspots (+2°C).png – Change in hotspot scores compared to current climate for +2°C warming.
+
+-Change in Mosquito Hotspots (+3°C).png – Change in hotspot scores compared to current climate for +3°C warming.
 
 📂 Files
 
