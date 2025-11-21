@@ -35,6 +35,7 @@
 -Compute a hotspot score as the product of species richness and climate suitability.
 
 **Hotspot Visualization & Analysis**
+
 -Map current global mosquito hotspots.
 
 -Perform linear regression to quantify the contribution of temperature vs. precipitation to hotspot scores.
