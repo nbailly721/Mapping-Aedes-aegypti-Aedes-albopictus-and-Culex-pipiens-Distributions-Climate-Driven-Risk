@@ -1,104 +1,130 @@
     ##Global Mosquito Hotspot Analysis: Mapping Aedes aegypti, Aedes albopictus, and Culex pipiens Distributions & Climate-Driven Risk##
 
--This project performs an end-to-end spatial analysis of three major disease-vector mosquitoes using species occurrence data from the BOLD (Barcode of Life Data Systems) dataset. It integrates species richness with climate variables (temperature and precipitation) to identify current and projected global mosquito hotspots under warming scenarios.
+**Description**
 
-🖥️ Workflow Overview
+This project performs an end-to-end spatial analysis of three major disease-vector mosquitoes using species occurrence data from the BOLD (Barcode of Life Data Systems) dataset. It integrates species richness with global climate variables (temperature and precipitation) to identify current and projected mosquito hotspots under warming scenarios. The workflow merges species distribution patterns with climate suitability modeling to assess present-day and future climate-driven risk.
 
-**Data Ingestion & Cleaning (R Script)**
+**Workflow Overview**
 
--Load raw BOLD occurrence data for the three mosquito species:
+    1. Data Ingestion & Preparation (R)
 
--Aedes aegypti: aedesaegypti.tsv
+Load raw BOLD occurrence data for three mosquito species:
 
--Aedes albopictus: aedesalbopictus.tsv
+aedesaegypti.tsv
 
--Culex pipiens: culexpipiens.tsv
+aedesalbopictus.tsv
 
--Standardize column names, filter for species of interest, and remove records missing country-level information.
+culexpipiens.tsv
 
-**Species Distribution Mapping**
+Standardize column names and filter for species of interest.
 
--Summarize presence by country and create separate maps for each species using ggplot2 and rnaturalearth shapefiles.
+Remove incomplete records lacking country-level information.
 
--Combine datasets to calculate species richness per country (number of vector species present).
+    2. Species Distribution Mapping
 
-**Climate Integration**
+Summarize presence counts by country for each species.
 
--Load climate raster data (WorldClim v2.1) for monthly temperature and precipitation:
+Generate individual species maps using ggplot2 and rnaturalearth shapefiles.
 
- -Temperature data
- 
- -Precipitation data
- 
--Extract country-level climate averages and scale variables to create a climate suitability score.
+Combine datasets to compute species richness (number of mosquito vectors present per country).
 
--Compute a hotspot score as the product of species richness and climate suitability.
+    3. Climate Integration
 
-**Hotspot Visualization & Analysis**
+Load climate rasters from WorldClim v2.1 for monthly temperature and precipitation.
 
--Map current global mosquito hotspots.
+Extract country-level climate averages and scale variables to produce a climate suitability score.
 
--Perform linear regression to quantify the contribution of temperature vs. precipitation to hotspot scores.
+Compute a hotspot score as:
+species richness × climate suitability
 
--Model projected hotspots under +2°C and +3°C warming scenarios.
+     4. Hotspot Visualization & Analysis
 
--Calculate changes in suitability compared to current climate.
+Map current global mosquito hotspots.
 
+Fit linear regression models to quantify temperature vs. precipitation contributions.
 
-🔧 R Packages & Tools
+Project hotspot scores under:
 
--tidyverse – Data wrangling, summarization, visualization
++2°C warming
 
--sf & rnaturalearth – Mapping and spatial data handling
++3°C warming
 
--terra – Raster and climate data processing
+Calculate suitability changes relative to current climate.
 
--viridis – Color scales for plots
+**Datasets Used** 
 
-📊 Key Results - Figures
+Primary Dataset:
+BOLD Species Distribution Data
+Source: https://boldsystems.org/
 
--Global Distribution of Culex pipiens.png – Global presence of Culex pipiens based on the BOLD dataset.
+Climate Dataset:
+WorldClim v2.1 — Temperature & Precipitation
+Source: https://www.worldclim.org/data/worldclim21.html
 
--Global Distribution of Aedes albopictus.png – Global presence of Aedes albopictus based on the BOLD dataset.
+**Processed / Generated Files**
 
--Global Distribution of Aedes aegypti.png – Global presence of Aedes aegypti based on the BOLD dataset.
+aedesaegypti.tsv
 
--Global Overlap of Disease-vector Mosquitoes.png – Species richness: overlap of the three mosquito species.
+aedesalbopictus.tsv
 
--Global Mosquito Hotspots (Current Climate).png – Hotspot scores combining species richness and current climate suitability.
+culexpipiens.tsv
 
--Projected Mosquito Hotspots (+2°C).png – Predicted hotspots under a +2°C warming scenario.
+Climate rasters (temperature & precipitation)
 
--Projected Mosquito Hotspots (+3°C).png – Predicted hotspots under a +3°C warming scenario.
+**Packages Used**
 
--Change in Mosquito Hotspots (+2°C).png – Change in hotspot scores compared to current climate for +2°C warming.
+R Packages
 
--Change in Mosquito Hotspots (+3°C).png – Change in hotspot scores compared to current climate for +3°C warming.
+tidyverse
 
-📂 Files
+sf
 
--global_mosquito_hotspot_analysis.R : Complete R script covering data ingestion, cleaning, mapping, climate integration, regression, and hotspot prediction
+rnaturalearth
 
-🧠 Notes
+terra
 
--Demonstrates a reproducible pipeline for species distribution and climate-driven risk analysis.
+viridis
 
--Can be adapted for other vector species, regions, or environmental datasets.
+Bash / Unix Tools
 
--Integrates BOLD species occurrence data with WorldClim climate data for global risk modeling.
+(None required)
 
--All the graphs showing future projections only represent the hotspots for **January**. The same code structure can be used to produce visualizations for the other months.
+**Key Results**
 
-📌 Policy-Based Relevance
+Global Distribution of Culex pipiens.png
 
--Supports global health planning by identifying current and emerging mosquito hotspots.
+Global Distribution of Aedes albopictus.png
 
--Helps prioritize regions for vector surveillance, disease prevention, and climate adaptation measures.
+Global Distribution of Aedes aegypti.png
 
--Provides a scalable, reproducible framework for vector-borne disease risk assessment.
+Global Overlap of Disease-vector Mosquitoes.png
 
-🏛️ Data Sources
+Global Mosquito Hotspots (Current Climate).png
 
--Species distribution data (BOLD dataset): https://boldsystems.org/
+Projected Mosquito Hotspots (+2°C).png
 
--Climate data (WorldClim v2.1): https://www.worldclim.org/data/worldclim21.html
+Projected Mosquito Hotspots (+3°C).png
+
+Change in Mosquito Hotspots (+2°C).png
+
+Change in Mosquito Hotspots (+3°C).png
+
+**Files in This Repository**
+
+global_mosquito_hotspot_analysis.R
+
+**Important Notes**
+
+Fully reproducible pipeline for species distribution & climate-driven risk modeling.
+
+Adaptable to other vector species and environmental datasets.
+
+Future projections shown are January only; the same workflow applies to other months.
+
+**Real-World Relevance**
+
+Supports global health planning by identifying current and emerging mosquito hotspots.
+
+Prioritizes regions for vector surveillance and climate adaptation strategies.
+
+Provides a scalable, reproducible framework for vector-borne disease risk assessment.
